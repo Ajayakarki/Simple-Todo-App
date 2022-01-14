@@ -15,6 +15,9 @@ def index(request):
     completed_task = Task.objects.filter(complete=True)
     count_completed_task = completed_task.count()
 
+    progress_task = Task.objects.filter(progress=True)
+    count_progress_task = progress_task.count()
+
     ## For incompleted task we just do the difference between all the tasks and the completed tasks
     count_incompleted_task = all_task_counter - count_completed_task
 
@@ -33,7 +36,8 @@ def index(request):
         'form': form,  ## Django forms
         'all_task_counter': all_task_counter, ## Counting the total number of task in the list
         'count_completed_task': count_completed_task, ## Counting the completed tasks
-        'count_incompleted_task': count_incompleted_task ## Counting the incmomplete tasks
+        'count_incompleted_task': count_incompleted_task, ## Counting the incmomplete tasks
+        'count_progress_task': count_progress_task
 
 
     }

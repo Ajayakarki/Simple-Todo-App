@@ -5,6 +5,7 @@ class Task(models.Model):
     content = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
+    progress = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date']
